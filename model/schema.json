@@ -170,6 +170,11 @@
     "PandasDataType": "string"
   },
   {
+    "TableName": "Sales",
+    "ColumnName": "Çek növü",
+    "PandasDataType": "string"
+  },
+  {
     "TableName": "Suppliers",
     "ColumnName": "Supplier_code1",
     "PandasDataType": "string"
@@ -178,5 +183,35 @@
     "TableName": "Suppliers",
     "ColumnName": "Supplier_name1",
     "PandasDataType": "string"
+  },
+  {
+    "TableName": "Tarix Seçimi",
+    "ColumnName": "Interval",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Tarix Seçimi",
+    "ColumnName": "Sira",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Çek aralıqları",
+    "ColumnName": "Aralıq",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Çek aralıqları",
+    "ColumnName": "Alt",
+    "PandasDataType": "Float64"
+  },
+  {
+    "TableName": "Çek aralıqları",
+    "ColumnName": "Üst",
+    "PandasDataType": "Float64"
+  },
+  {
+    "TableName": "Çek aralıqları",
+    "ColumnName": "Sıra",
+    "PandasDataType": "Int64"
   }
 ]

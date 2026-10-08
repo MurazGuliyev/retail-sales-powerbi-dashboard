@@ -1,0 +1,128 @@
+[
+  {
+    "TableName": "Sales",
+    "Name": "Satış",
+    "Expression": "SUMX(Sales, Sales[Quantity] * Sales[product_price])",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Kart_yazisi",
+    "Expression": "\"Satış çeki\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Ort_Sebet",
+    "Expression": "\nVAR SatisMeblegi = \n    CALCULATE([Satış], KEEPFILTERS(Sales[Quantity] > 0))\nVAR CekSayi = \n    CALCULATE(DISTINCTCOUNT(Sales[Cek]), KEEPFILTERS(Sales[Quantity]>0))\nreturn DIVIDE(SatisMeblegi, CekSayi)",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Ort_Sebet_Yazisi",
+    "Expression": "\"Orta səbət\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Sat_meh_Yazisi",
+    "Expression": "\"Satılan məhsul\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Satılan mehsul sayi",
+    "Expression": "CALCULATE(DISTINCTCOUNT(Sales[Product_id]), KEEPFILTERS(Sales[Quantity]>0))",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Müsbət satış",
+    "Expression": "\nCALCULATE(\n    [Satış],\n    KEEPFILTERS(Sales[Quantity] > 0)\n)",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Mus_sat_yaz",
+    "Expression": "\"Müsbət satış\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Qaytarma",
+    "Expression": "SUMX(Sales, Sales[Quantity] * Sales[product_price])",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Qaytarma_yazisi",
+    "Expression": "\"Qaytarma\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Xalis_sat_yaz",
+    "Expression": "\"Xalis satış\"",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Kartlı orta səbət",
+    "Expression": "\nCALCULATE(\n    [Ort_Sebet],\n    KEEPFILTERS(\n        Sales[Customer_Card_No] <> \"NULL\" &&\n        Sales[Customer_Card_No] <> BLANK()\n    )\n)",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Kartlsiz orta səbət",
+    "Expression": "\nCALCULATE(\n    [Ort_Sebet],\n    KEEPFILTERS(\n        Sales[Customer_Card_No] = \"NULL\" &&\n        Sales[Customer_Card_No] = BLANK()\n    )\n)",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Kartli Satis Payi",
+    "Expression": "\nVAR KartliSatis = \n    CALCULATE(\n        [Satış], \n        KEEPFILTERS(\n            Sales[Customer_Card_No] <> \"NULL\" && \n            Sales[Customer_Card_No] <> BLANK()\n        )\n    )\nRETURN \n    DIVIDE(KartliSatis, [Satış], 0)\n",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Kartsiz Satis Payi",
+    "Expression": "\nVAR KartsizSatis = \n    CALCULATE(\n        [Satış], \n        KEEPFILTERS(\n            Sales[Customer_Card_No] = \"NULL\" || \n            Sales[Customer_Card_No] = BLANK()\n        )\n    )\nRETURN \n    DIVIDE(KartsizSatis, [Satış], 0)\n",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Çek aralıqları",
+    "Name": "Aralıq üzrə çek sayı",
+    "Expression": "\nVAR AltHedd =\n    SELECTEDVALUE('Çek aralıqları'[Alt])\nVAR UstHedd =\n    SELECTEDVALUE('Çek aralıqları'[Üst])\nVAR Cekler =\n    ADDCOLUMNS(\n        VALUES(Sales[Cek]),\n        \"@Mebleg\", [Müsbət satış]\n    )\nRETURN\n    COUNTROWS(\n        FILTER(\n            Cekler,\n            NOT ISBLANK([@Mebleg]) &&\n            (ISBLANK(AltHedd) || [@Mebleg] >= AltHedd) &&\n            (ISBLANK(UstHedd) || [@Mebleg] < UstHedd)\n        )\n    )",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Menfisiz_Qaytarma",
+    "Expression": "ABS(CALCULATE(\n        SUMX(Sales, Sales[Quantity] * Sales[product_price]), \n        KEEPFILTERS(\n            Sales[transaction_type] = \"İade\"\n        )\n    ))",
+    "DisplayFolder": null,
+    "Description": null
+  },
+  {
+    "TableName": "Sales",
+    "Name": "Qaytarma Faizi",
+    "Expression": "\nVAR Qaytarma = \n    ABS(CALCULATE(\n        SUMX(Sales, Sales[Quantity] * Sales[product_price]), \n        KEEPFILTERS(\n            Sales[transaction_type] = \"İade\"\n        )\n    ))\nRETURN \n    DIVIDE(Qaytarma, [Satış], 0)",
+    "DisplayFolder": null,
+    "Description": null
+  }
+]

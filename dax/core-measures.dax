@@ -1,10 +1,12 @@
-// Measure definitions extracted from the supplied Power BI model.
-// Create each measure separately in Power BI Desktop.
-// This file is a source listing, not an executable DAX query.
+// Analytical measures used by the four report pages.
+// Create each definition separately in the indicated home table.
+// This is a source listing, not an executable DAX query.
 
+// Home table: Sales
 Satış =
 SUMX(Sales, Sales[Quantity] * Sales[product_price])
 
+// Home table: Sales
 Ort_Sebet =
 VAR SatisMeblegi = 
     CALCULATE([Satış], KEEPFILTERS(Sales[Quantity] > 0))
@@ -12,11 +14,95 @@ VAR CekSayi =
     CALCULATE(DISTINCTCOUNT(Sales[Cek]), KEEPFILTERS(Sales[Quantity]>0))
 return DIVIDE(SatisMeblegi, CekSayi)
 
+// Home table: Sales
 Satılan mehsul sayi =
 CALCULATE(DISTINCTCOUNT(Sales[Product_id]), KEEPFILTERS(Sales[Quantity]>0))
 
+// Home table: Sales
 Müsbət satış =
 CALCULATE(
     [Satış],
     KEEPFILTERS(Sales[Quantity] > 0)
 )
+
+// Home table: Sales
+Qaytarma =
+SUMX(Sales, Sales[Quantity] * Sales[product_price])
+
+// Home table: Sales
+Kartlı orta səbət =
+CALCULATE(
+    [Ort_Sebet],
+    KEEPFILTERS(
+        Sales[Customer_Card_No] <> "NULL" &&
+        Sales[Customer_Card_No] <> BLANK()
+    )
+)
+
+// Home table: Sales
+Kartli Satis Payi =
+VAR KartliSatis = 
+    CALCULATE(
+        [Satış], 
+        KEEPFILTERS(
+            Sales[Customer_Card_No] <> "NULL" && 
+            Sales[Customer_Card_No] <> BLANK()
+        )
+    )
+RETURN 
+    DIVIDE(KartliSatis, [Satış], 0)
+
+// Home table: Sales
+Kartsiz Satis Payi =
+VAR KartsizSatis = 
+    CALCULATE(
+        [Satış], 
+        KEEPFILTERS(
+            Sales[Customer_Card_No] = "NULL" || 
+            Sales[Customer_Card_No] = BLANK()
+        )
+    )
+RETURN 
+    DIVIDE(KartsizSatis, [Satış], 0)
+
+// Home table: Çek aralıqları
+Aralıq üzrə çek sayı =
+VAR AltHedd =
+    SELECTEDVALUE('Çek aralıqları'[Alt])
+VAR UstHedd =
+    SELECTEDVALUE('Çek aralıqları'[Üst])
+VAR Cekler =
+    ADDCOLUMNS(
+        VALUES(Sales[Cek]),
+        "@Mebleg", [Müsbət satış]
+    )
+RETURN
+    COUNTROWS(
+        FILTER(
+            Cekler,
+            NOT ISBLANK([@Mebleg]) &&
+            (ISBLANK(AltHedd) || [@Mebleg] >= AltHedd) &&
+            (ISBLANK(UstHedd) || [@Mebleg] < UstHedd)
+        )
+    )
+
+// Home table: Sales
+Menfisiz_Qaytarma =
+ABS(CALCULATE(
+        SUMX(Sales, Sales[Quantity] * Sales[product_price]), 
+        KEEPFILTERS(
+            Sales[transaction_type] = "İade"
+        )
+    ))
+
+// Home table: Sales
+Qaytarma Faizi =
+VAR Qaytarma = 
+    ABS(CALCULATE(
+        SUMX(Sales, Sales[Quantity] * Sales[product_price]), 
+        KEEPFILTERS(
+            Sales[transaction_type] = "İade"
+        )
+    ))
+RETURN 
+    DIVIDE(Qaytarma, [Satış], 0)

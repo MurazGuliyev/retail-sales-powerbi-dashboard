@@ -1,6 +1,6 @@
 # Data model
 
-`Sales` is the transaction fact table. Eight active many-to-one relationships link it to reference tables. All exported relationships use single-direction filtering.
+Sales is the transaction fact table. Eight active many-to-one relationships connect it to reference tables with single-direction filtering.
 
 | Dimension | Sales key | Dimension key |
 | --- | --- | --- |
@@ -13,8 +13,13 @@
 | Suppliers | `Supplier_code1` | `Supplier_code1` |
 | Calendar | `Date` | `Date` |
 
-The imported model has nine Excel source queries. Power Query sets text, numeric, currency and datetime types, removes unused fields, and deduplicates reference tables. The Calendar query derives date, weekday name, day-of-month and hour fields from the source timestamps. Its relationship to Sales uses the original datetime `Date` field.
+The nine imported Excel queries contain 312,406 rows in Sales. Power Query sets data types, removes unused fields and deduplicates reference tables. Calendar derives date, weekday name, day-of-month and hour from source timestamps. The active Sales relationship uses the original datetime Date field.
 
-The model also contains a disconnected `Tarix Seçimi` table and Power BI-generated date tables. They are outside the nine imported source tables documented here.
+## Custom helper tables
 
-Customer card and cashier column names appear in the schema as model metadata. No customer identifiers, employee names or transaction rows are included in this source package.
+- Tarix Seçimi contains three predefined April 2026 date-range labels and an order field.
+- Çek aralıqları contains the five receipt-value bands, lower and upper bounds, and an order field. Its disconnected structure allows the measure to calculate receipt counts while retaining current Sales filters.
+
+Power BI-generated local date tables are outside the custom schema listing.
+
+The public source includes model fields and expressions, not cached business rows. The report-layout JSON was checked for source customer-card and cashier-name literals before packaging. No such literals were found.

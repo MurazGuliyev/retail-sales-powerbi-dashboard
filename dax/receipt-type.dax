@@ -1,0 +1,9 @@
+// Calculated column in Sales
+Çek növü =
+VAR Kart = TRIM(Sales[Customer_Card_No] & "")
+RETURN
+    IF(
+        Kart = "" || UPPER(Kart) = "NULL",
+        "Kartsız",
+        "Kartlı"
+    )

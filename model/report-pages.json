@@ -1,0 +1,56 @@
+[
+  {
+    "name": "İcmal",
+    "width": 1920,
+    "height": 1545,
+    "visual_types": {
+      "textbox": 6,
+      "pageNavigator": 1,
+      "slicer": 2,
+      "shape": 10,
+      "cardVisual": 7,
+      "areaChart": 1,
+      "clusteredBarChart": 1
+    }
+  },
+  {
+    "name": "Satış Ritmi",
+    "width": 1920,
+    "height": 1545,
+    "visual_types": {
+      "textbox": 7,
+      "pageNavigator": 1,
+      "slicer": 2,
+      "shape": 8,
+      "pivotTable": 1,
+      "clusteredColumnChart": 2
+    }
+  },
+  {
+    "name": "Səbət və Kartlar",
+    "width": 1920,
+    "height": 1545,
+    "visual_types": {
+      "textbox": 14,
+      "pageNavigator": 1,
+      "cardVisual": 7,
+      "slicer": 3,
+      "shape": 7,
+      "clusteredBarChart": 1
+    }
+  },
+  {
+    "name": "Qaytarmalar",
+    "width": 1920,
+    "height": 1500,
+    "visual_types": {
+      "textbox": 9,
+      "pageNavigator": 1,
+      "slicer": 2,
+      "shape": 7,
+      "cardVisual": 4,
+      "clusteredColumnChart": 1,
+      "tableEx": 2
+    }
+  }
+]
