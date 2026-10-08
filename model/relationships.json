@@ -1,0 +1,74 @@
+[
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Brend_id",
+    "ToTableName": "Brend",
+    "ToColumnName": "Brend_id",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Category_id",
+    "ToTableName": "Category",
+    "ToColumnName": "Category_id",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Cashier_code",
+    "ToTableName": "Cashiers",
+    "ToColumnName": "Cashier_code",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "producer_id",
+    "ToTableName": "Producer",
+    "ToColumnName": "producer_id",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Product_id",
+    "ToTableName": "Products",
+    "ToColumnName": "Product_id",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Reyone_id",
+    "ToTableName": "Reyone",
+    "ToColumnName": "Reyone_id",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Supplier_code1",
+    "ToTableName": "Suppliers",
+    "ToColumnName": "Supplier_code1",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  },
+  {
+    "FromTableName": "Sales",
+    "FromColumnName": "Date",
+    "ToTableName": "Calendar",
+    "ToColumnName": "Date",
+    "IsActive": 1,
+    "Cardinality": "M:1",
+    "CrossFilteringBehavior": "Single"
+  }
+]

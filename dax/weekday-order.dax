@@ -1,0 +1,3 @@
+// Calculated column in Calendar
+Həftə günü sırası =
+WEEKDAY('Calendar'[Date.1], 2)

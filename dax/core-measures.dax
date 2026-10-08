@@ -1,0 +1,22 @@
+// Measure definitions extracted from the supplied Power BI model.
+// Create each measure separately in Power BI Desktop.
+// This file is a source listing, not an executable DAX query.
+
+Satış =
+SUMX(Sales, Sales[Quantity] * Sales[product_price])
+
+Ort_Sebet =
+VAR SatisMeblegi = 
+    CALCULATE([Satış], KEEPFILTERS(Sales[Quantity] > 0))
+VAR CekSayi = 
+    CALCULATE(DISTINCTCOUNT(Sales[Cek]), KEEPFILTERS(Sales[Quantity]>0))
+return DIVIDE(SatisMeblegi, CekSayi)
+
+Satılan mehsul sayi =
+CALCULATE(DISTINCTCOUNT(Sales[Product_id]), KEEPFILTERS(Sales[Quantity]>0))
+
+Müsbət satış =
+CALCULATE(
+    [Satış],
+    KEEPFILTERS(Sales[Quantity] > 0)
+)

@@ -1,0 +1,182 @@
+[
+  {
+    "TableName": "Brend",
+    "ColumnName": "Brend_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Brend",
+    "ColumnName": "Brend_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Date",
+    "PandasDataType": "datetime64[ns]"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Date.1",
+    "PandasDataType": "datetime64[ns]"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Day Name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Day",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Hour",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Calendar",
+    "ColumnName": "Həftə günü sırası",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Cashiers",
+    "ColumnName": "Cashier_code",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Cashiers",
+    "ColumnName": "Cashier_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Category",
+    "ColumnName": "Category_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Category",
+    "ColumnName": "Category_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Producer",
+    "ColumnName": "producer_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Producer",
+    "ColumnName": "producer_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Products",
+    "ColumnName": "Product_id",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Products",
+    "ColumnName": "Product_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Products",
+    "ColumnName": "Unit",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Reyone",
+    "ColumnName": "Reyone_id",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Reyone",
+    "ColumnName": "Reyone_name",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "producer_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Category_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Brend_id",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Reyone_id",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Product_id",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Date",
+    "PandasDataType": "datetime64[ns]"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Barcode",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Cek",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Quantity",
+    "PandasDataType": "Float64"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "product_cost",
+    "PandasDataType": "decimal.Decimal"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "product_price",
+    "PandasDataType": "decimal.Decimal"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Supplier_code1",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Customer_Card_No",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "Cashier_code",
+    "PandasDataType": "Int64"
+  },
+  {
+    "TableName": "Sales",
+    "ColumnName": "transaction_type",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Suppliers",
+    "ColumnName": "Supplier_code1",
+    "PandasDataType": "string"
+  },
+  {
+    "TableName": "Suppliers",
+    "ColumnName": "Supplier_name1",
+    "PandasDataType": "string"
+  }
+]
